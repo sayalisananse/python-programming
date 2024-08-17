@@ -1,0 +1,47 @@
+# Simple calculator program
+
+# Function to perform the calculation
+def calculate(num1, num2, operation):
+    if operation == '+':
+        return num1 + num2
+    elif operation == '-':
+        return num1 - num2
+    elif operation == '*':
+        return num1 * num2
+    elif operation == '/':
+        # Check if the second number is zero to avoid division by zero
+        if num2 != 0:
+            return num1 / num2
+        else:
+            return "Error: Division by zero is not allowed."
+    else:
+        return "Error: Invalid operation."
+
+# Main function to handle user input and display result
+def main():
+    print("Simple Calculator")
+    
+    # Prompt the user for the first number
+    try:
+        num1 = float(input("Enter the first number: "))
+    except ValueError:
+        print("Error: Invalid input. Please enter a number.")
+        return
+    
+    # Prompt the user for the second number
+    try:
+        num2 = float(input("Enter the second number: "))
+    except ValueError:
+        print("Error: Invalid input. Please enter a number.")
+        return
+    
+    # Prompt the user for the operation
+    operation = input("Enter the operation (+, -, *, /): ").strip()
+    
+    # Perform the calculation and display the result
+    result = calculate(num1, num2, operation)
+    print(f"The result is: {result}")
+
+# Run the main function
+if __name__ == "__main__":
+    main()
